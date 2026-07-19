@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-746M34J0Z4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-746M34J0Z4');
+</script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Τεστ ΑΣΕΠ Online 2026 | Προσομοίωση Γραπτού Διαγωνισμού με AI - ASEP Study</title>
@@ -590,6 +599,18 @@
     }
   }
   document.addEventListener('DOMContentLoaded', loadStats);
+
+  // Google Analytics: μετράμε κάθε κλικ προς την εφαρμογή σαν "conversion" event
+  document.querySelectorAll('a[href*="app.asepstudy.gr"]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      if (typeof gtag === 'function') {
+        gtag('event', 'cta_click', {
+          link_text: link.textContent.trim(),
+          link_location: link.closest('section') ? link.closest('section').id : 'nav_or_hero',
+        });
+      }
+    });
+  });
 </script>
 
 </body>
